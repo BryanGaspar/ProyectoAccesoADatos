@@ -30,15 +30,14 @@ namespace IUWindowsForm
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.btnMostrar = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblCarrera = new System.Windows.Forms.Label();
+            this.lblNiv = new System.Windows.Forms.Label();
+            this.lblNomMat = new System.Windows.Forms.Label();
+            this.lblCodMat = new System.Windows.Forms.Label();
             this.txtCarrera = new System.Windows.Forms.TextBox();
-            this.txtNivelMat = new System.Windows.Forms.TextBox();
             this.txtNombreMateria = new System.Windows.Forms.TextBox();
             this.txtCodMateria = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,20 +45,21 @@ namespace IUWindowsForm
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.cmbNiveles = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.cmbNiveles);
+            this.groupBox1.Controls.Add(this.btnCerrar);
             this.groupBox1.Controls.Add(this.btnMostrar);
             this.groupBox1.Controls.Add(this.btnNew);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.lblCarrera);
+            this.groupBox1.Controls.Add(this.lblNiv);
+            this.groupBox1.Controls.Add(this.lblNomMat);
+            this.groupBox1.Controls.Add(this.lblCodMat);
             this.groupBox1.Controls.Add(this.txtCarrera);
-            this.groupBox1.Controls.Add(this.txtNivelMat);
             this.groupBox1.Controls.Add(this.txtNombreMateria);
             this.groupBox1.Controls.Add(this.txtCodMateria);
             this.groupBox1.Controls.Add(this.label4);
@@ -69,23 +69,24 @@ namespace IUWindowsForm
             this.groupBox1.Controls.Add(this.btnGuardar);
             this.groupBox1.Location = new System.Drawing.Point(36, 26);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(561, 376);
+            this.groupBox1.Size = new System.Drawing.Size(722, 401);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingresa los datos de la materia";
             // 
-            // button3
+            // btnCerrar
             // 
-            this.button3.Location = new System.Drawing.Point(343, 180);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnCerrar.Location = new System.Drawing.Point(560, 180);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.TabIndex = 15;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnMostrar
             // 
-            this.btnMostrar.Location = new System.Drawing.Point(343, 129);
+            this.btnMostrar.Location = new System.Drawing.Point(560, 133);
             this.btnMostrar.Name = "btnMostrar";
             this.btnMostrar.Size = new System.Drawing.Size(75, 34);
             this.btnMostrar.TabIndex = 14;
@@ -95,7 +96,7 @@ namespace IUWindowsForm
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(343, 87);
+            this.btnNew.Location = new System.Drawing.Point(560, 87);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 23);
             this.btnNew.TabIndex = 13;
@@ -103,49 +104,45 @@ namespace IUWindowsForm
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // label8
+            // lblCarrera
             // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(263, 180);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "label8";
-            this.label8.Visible = false;
+            this.lblCarrera.AutoSize = true;
+            this.lblCarrera.ForeColor = System.Drawing.Color.Red;
+            this.lblCarrera.Location = new System.Drawing.Point(263, 180);
+            this.lblCarrera.Name = "lblCarrera";
+            this.lblCarrera.Size = new System.Drawing.Size(0, 13);
+            this.lblCarrera.TabIndex = 12;
+            this.lblCarrera.Visible = false;
             // 
-            // label7
+            // lblNiv
             // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(263, 136);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "label7";
-            this.label7.Visible = false;
+            this.lblNiv.AutoSize = true;
+            this.lblNiv.ForeColor = System.Drawing.Color.Red;
+            this.lblNiv.Location = new System.Drawing.Point(263, 136);
+            this.lblNiv.Name = "lblNiv";
+            this.lblNiv.Size = new System.Drawing.Size(0, 13);
+            this.lblNiv.TabIndex = 11;
+            this.lblNiv.Visible = false;
             // 
-            // label6
+            // lblNomMat
             // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(263, 87);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "label6";
-            this.label6.Visible = false;
+            this.lblNomMat.AutoSize = true;
+            this.lblNomMat.ForeColor = System.Drawing.Color.Red;
+            this.lblNomMat.Location = new System.Drawing.Point(263, 87);
+            this.lblNomMat.Name = "lblNomMat";
+            this.lblNomMat.Size = new System.Drawing.Size(0, 13);
+            this.lblNomMat.TabIndex = 10;
+            this.lblNomMat.Visible = false;
             // 
-            // label5
+            // lblCodMat
             // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(262, 53);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "label5";
-            this.label5.Visible = false;
+            this.lblCodMat.AutoSize = true;
+            this.lblCodMat.ForeColor = System.Drawing.Color.Red;
+            this.lblCodMat.Location = new System.Drawing.Point(263, 53);
+            this.lblCodMat.Name = "lblCodMat";
+            this.lblCodMat.Size = new System.Drawing.Size(0, 13);
+            this.lblCodMat.TabIndex = 9;
+            this.lblCodMat.Visible = false;
             // 
             // txtCarrera
             // 
@@ -153,13 +150,7 @@ namespace IUWindowsForm
             this.txtCarrera.Name = "txtCarrera";
             this.txtCarrera.Size = new System.Drawing.Size(100, 20);
             this.txtCarrera.TabIndex = 8;
-            // 
-            // txtNivelMat
-            // 
-            this.txtNivelMat.Location = new System.Drawing.Point(156, 133);
-            this.txtNivelMat.Name = "txtNivelMat";
-            this.txtNivelMat.Size = new System.Drawing.Size(100, 20);
-            this.txtNivelMat.TabIndex = 7;
+            this.txtCarrera.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCarrera_KeyPress);
             // 
             // txtNombreMateria
             // 
@@ -167,6 +158,7 @@ namespace IUWindowsForm
             this.txtNombreMateria.Name = "txtNombreMateria";
             this.txtNombreMateria.Size = new System.Drawing.Size(100, 20);
             this.txtNombreMateria.TabIndex = 6;
+            this.txtNombreMateria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreMateria_KeyPress);
             // 
             // txtCodMateria
             // 
@@ -174,6 +166,8 @@ namespace IUWindowsForm
             this.txtCodMateria.Name = "txtCodMateria";
             this.txtCodMateria.Size = new System.Drawing.Size(100, 20);
             this.txtCodMateria.TabIndex = 5;
+            this.txtCodMateria.TextChanged += new System.EventHandler(this.txtCodMateria_TextChanged);
+            this.txtCodMateria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodMateria_KeyPress);
             // 
             // label4
             // 
@@ -213,13 +207,32 @@ namespace IUWindowsForm
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(343, 43);
+            this.btnGuardar.Location = new System.Drawing.Point(560, 53);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 0;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // cmbNiveles
+            // 
+            this.cmbNiveles.FormattingEnabled = true;
+            this.cmbNiveles.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.cmbNiveles.Location = new System.Drawing.Point(156, 136);
+            this.cmbNiveles.Name = "cmbNiveles";
+            this.cmbNiveles.Size = new System.Drawing.Size(100, 21);
+            this.cmbNiveles.TabIndex = 16;
             // 
             // frmAgregarMateria
             // 
@@ -243,16 +256,16 @@ namespace IUWindowsForm
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox txtCarrera;
-        private System.Windows.Forms.TextBox txtNivelMat;
         private System.Windows.Forms.TextBox txtNombreMateria;
         private System.Windows.Forms.TextBox txtCodMateria;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label lblCarrera;
+        private System.Windows.Forms.Label lblNiv;
+        private System.Windows.Forms.Label lblNomMat;
+        private System.Windows.Forms.Label lblCodMat;
+        private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnMostrar;
         private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.ComboBox cmbNiveles;
     }
 }
