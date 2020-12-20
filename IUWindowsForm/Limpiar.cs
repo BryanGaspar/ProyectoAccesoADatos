@@ -17,6 +17,7 @@ namespace IUWindowsForm
                     ((TextBox)txt).Clear();
                 else if (txt is ComboBox)
                     ((ComboBox)txt).SelectedIndex = 0;
+            
             }
         
 

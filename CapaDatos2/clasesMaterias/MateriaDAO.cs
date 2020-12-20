@@ -12,7 +12,7 @@ namespace CapaDatos2.clasesMaterias
     {
         public static int crear(Materia materia)
         {
-            String cadenaConexion = @"server=DESKTOP-9FVCNIV\SQLEXPRESS ; database=Materias; integrated security=true";
+            String cadenaConexion = @"server=DESKTOP-9FVCNIV\SQLEXPRESS ; database=Estudiantes; integrated security=true";
             SqlConnection conexion = new SqlConnection(cadenaConexion);
 
             //operacion sobre bdd
@@ -45,7 +45,7 @@ namespace CapaDatos2.clasesMaterias
             //String cadenaConexion = @" ; database=Estudiantes; user id=sa; pwd=isa";
 
             //Autenticación con el usuario de windows
-            String cadenaConexion = @"server=DESKTOP-9FVCNIV\SQLEXPRESS ; database=Materias; integrated security=true";
+            String cadenaConexion = @"server=DESKTOP-9FVCNIV\SQLEXPRESS ; database=Estudiantes; integrated security=true";
 
             //Objeto tipo conexión para conectarse con el servidor
             SqlConnection conexion = new SqlConnection(cadenaConexion);
